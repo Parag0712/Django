@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chai Collection
+{% endblock %}
+
+{% block content %}
+    <div class="p-6 bg-gray-100">
+        {% comment %} SHOW ALL DATA {% endcomment %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {% for chai in chais %}
+                <div class="chai-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="{{ chai.image.url }}" alt="{{ chai.name }}" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800">{{ chai.name }}</h3>
+                        <p class="text-sm text-gray-600">{{ chai.date_added }}</p>
+                        <p class="text-gray-700 mt-2">{{ chai.description }}</p>
+                        <a href="{% url 'chai_detail' chai.id %}" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Details</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

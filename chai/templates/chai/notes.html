@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    chai
+{% endblock %}
+
+{% block content %}
+    <div style=" padding: 20px; " class="mx-auto w-full flex  justify-center gap-2">
+        {% comment %} SHOW ALL DATA {% endcomment %}
+        {% for note in notes %}
+            <div class=" flex max-w-2xl flex-col items-center rounded-md border md:flex-row">
+                <div>
+                  <div class="p-4">
+                    <h1 class="inline-flex items-center text-lg font-semibold">
+                      {{note.name}}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="ml-2 h-4 w-4"
+                      >
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                    </h1>
+                    <p class="mt-3 text-sm text-gray-600">
+                        {{note.description}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+
+
+
+        {% endfor %}    
+    </div>
+
+{% endblock %}
